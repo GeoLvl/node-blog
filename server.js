@@ -1,5 +1,6 @@
 const http = require('http');
 const fs = require('fs');
+const _ = require('lodash');
 
 
 // REQUEST PART
@@ -10,7 +11,19 @@ const fs = require('fs');
 
 //RESPONSE PART
 const server = http.createServer((req, res) => {
-    console.log(req.url, req.method);
+    //console.log(req.url, req.method);
+
+
+    //lodash
+    const num = _.random(0, 20);
+    console.log(num);
+
+    const greet = _.once(() => {
+        console.log('hello');
+    });
+
+    greet();
+    greet();
 
     // set header content type
     res.setHeader('Content-Type', 'text/html');
